@@ -38,13 +38,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnTag = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnLinearSearch = new System.Windows.Forms.Button();
             this.btnBinarySearch = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stsBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(161, 23);
             this.txtInput.TabIndex = 2;
-            this.txtInput.Text = "Enter a rego plate";
+            this.txtInput.TextChanged += new System.EventHandler(this.txtInput_TextChanged);
             // 
             // btnOpen
             // 
@@ -86,6 +86,7 @@
             this.btnOpen.TabIndex = 3;
             this.btnOpen.Text = "OPEN";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnSave
             // 
@@ -115,6 +116,7 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -134,16 +136,6 @@
             this.btnTag.TabIndex = 3;
             this.btnTag.Text = "TAG";
             this.btnTag.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(713, 402);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "RESET";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnLinearSearch
             // 
@@ -198,17 +190,28 @@
             this.btnExit.TabStop = false;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(713, 393);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // ActiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBinarySearch);
             this.Controls.Add(this.btnLinearSearch);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnTag);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -241,12 +244,12 @@
         private Button btnAdd;
         private Button btnEdit;
         private Button btnTag;
-        private Button btnReset;
         private Button btnLinearSearch;
         private Button btnBinarySearch;
         private PictureBox pictureBox1;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel stsBar;
         private Button btnExit;
+        private Button btnReset;
     }
 }
