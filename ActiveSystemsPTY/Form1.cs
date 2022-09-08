@@ -44,15 +44,16 @@ namespace ActiveSystemsPTY
                     txtInput.Clear();
                 }
             }
+
             else if (txtInput.Text.Length == 0)
             {
                 txtInput.BackColor = Color.Red;
-                stsInfo.Text = "Please enter a rego number.";
+                stsStatus.Text = "Please enter a rego number.";
             }
             else
             {
                 txtInput.BackColor = Color.Red;
-                stsInfo.Text = "The rego number have aleady existed.";
+                stsStatus.Text = "The rego number have aleady existed.";
             }
 
         }
