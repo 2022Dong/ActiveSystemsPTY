@@ -5,6 +5,7 @@ namespace ActiveSystemsPTY
         public ActiveForm()
         {
             InitializeComponent();
+            stsStatus.Text = "Feedback:";
         }
 
         // Creat list data structure.
@@ -46,10 +47,12 @@ namespace ActiveSystemsPTY
             else if (txtInput.Text.Length == 0)
             {
                 txtInput.BackColor = Color.Red;
+                stsInfo.Text = "Please enter a rego number.";
             }
             else
             {
                 txtInput.BackColor = Color.Red;
+                stsInfo.Text = "The rego number have aleady existed.";
             }
 
         }
@@ -63,11 +66,6 @@ namespace ActiveSystemsPTY
         }
 
         private void ActiveForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripProgressBar1_Click(object sender, EventArgs e)
         {
 
         }
@@ -88,15 +86,25 @@ namespace ActiveSystemsPTY
         private void btnAdd_Click(object sender, EventArgs e)
         {
             txtInput.BackColor = Color.White;
-            if (!myList.Contains(txtInput.Text))
+            if (!string.IsNullOrEmpty(txtInput.Text) && !myList.Contains(txtInput.Text))
             {
+                stsStatus.Text = "Feedback:";
+                stsStatus.BackColor = Color.White;
                 myList.Add(txtInput.Text);
                 UpdataListBox();
                 txtInput.Clear();
             }
+            else if (string.IsNullOrEmpty(txtInput.Text))
+            {
+                txtInput.BackColor = Color.Red;
+                stsStatus.Text = "Please enter a rego plate.";
+                stsStatus.BackColor = Color.Red;
+            }
             else
             {
                 txtInput.BackColor = Color.Red;
+                stsStatus.Text = "The rego plate have already existed.";
+                stsStatus.BackColor = Color.Red;
             }
         }
 
@@ -108,6 +116,27 @@ namespace ActiveSystemsPTY
         private void btnOpen_Click(object sender, EventArgs e)
         {
             
+        }
+
+
+        private void ActiveForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stsInfo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

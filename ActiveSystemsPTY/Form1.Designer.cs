@@ -41,12 +41,12 @@
             this.btnLinearSearch = new System.Windows.Forms.Button();
             this.btnBinarySearch = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.stsBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.stsInfo = new System.Windows.Forms.StatusStrip();
+            this.stsStatus = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            this.stsInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstOutput
@@ -71,7 +71,7 @@
             // 
             // txtInput
             // 
-            this.txtInput.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtInput.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtInput.Location = new System.Drawing.Point(350, 112);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(161, 23);
@@ -165,22 +165,6 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stsBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 6;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // stsBar
-            // 
-            this.stsBar.Name = "stsBar";
-            this.stsBar.Size = new System.Drawing.Size(60, 17);
-            this.stsBar.Text = "Feedback:";
-            // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(622, 278);
@@ -202,13 +186,31 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // stsInfo
+            // 
+            this.stsInfo.Dock = System.Windows.Forms.DockStyle.None;
+            this.stsInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stsStatus});
+            this.stsInfo.Location = new System.Drawing.Point(0, 428);
+            this.stsInfo.Name = "stsInfo";
+            this.stsInfo.Size = new System.Drawing.Size(108, 22);
+            this.stsInfo.TabIndex = 8;
+            this.stsInfo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.stsInfo_ItemClicked);
+            // 
+            // stsStatus
+            // 
+            this.stsStatus.Name = "stsStatus";
+            this.stsStatus.Size = new System.Drawing.Size(60, 17);
+            this.stsStatus.Text = "Feedback:";
+            this.stsStatus.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
             // ActiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.stsInfo);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBinarySearch);
             this.Controls.Add(this.btnLinearSearch);
@@ -226,8 +228,8 @@
             this.Text = "ActiveForm";
             this.Load += new System.EventHandler(this.ActiveForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.stsInfo.ResumeLayout(false);
+            this.stsInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,8 +250,9 @@
         private Button btnBinarySearch;
         private PictureBox pictureBox1;
         private StatusStrip statusStrip1;
-        private ToolStripStatusLabel stsBar;
         private Button btnExit;
         private Button btnReset;
+        private StatusStrip stsInfo;
+        private ToolStripStatusLabel stsStatus;
     }
 }
